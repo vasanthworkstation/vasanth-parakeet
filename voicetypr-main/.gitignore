@@ -1,0 +1,69 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Test artifacts
+coverage/
+.nyc_output/
+test-results/
+
+node_modules
+dist
+dist-ssr
+*.local
+# Ignore Cargo build outputs at repo root and sidecar/*/target.
+target/
+.env
+.env.local
+.env.production
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+agent-docs
+agent-docs/
+agent-reports
+
+CLAUDE.local.md
+
+/release-*
+
+notarized-build-*
+
+claudedocs/
+
+# Swift build artifacts
+.build/
+
+sidecar/ffmpeg/vendor
+opencodetmp
+
+# Git worktrees for parallel development
+.worktrees/
+
+# Agent counter for multi-agent coordination
+.agent-counter
+
+# Stray agent-harness tooling (local skill packs / lockfile, not part of this project)
+.agents/
+.claude/skills/
+skills-lock.json
+
+# bv (beads viewer) local config and caches
+.bv/
+pi-session-*.html
+# Whisper Vulkan sidecar build artifacts
+sidecar/whisper-vulkan/target/

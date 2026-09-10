@@ -1,0 +1,292 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #fcfcfc;
+  --foreground: #1b1b1d;
+  --card: #ffffff;
+  --card-foreground: #1b1b1d;
+  --popover: #ffffff;
+  --popover-foreground: #1b1b1d;
+  --primary: #1b1b1d;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f3;
+  --secondary-foreground: #1b1b1d;
+  --muted: #f5f5f3;
+  --muted-foreground: #6b6a66;
+  --accent: #f0efec;
+  --accent-foreground: #1b1b1d;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #ffffff;
+  --border: #e7e8e5;
+  --input: #e7e8e5;
+  --ring: oklch(0.52 0.082 155);
+  --sage: oklch(0.52 0.082 155);
+  --sage-foreground: #ffffff;
+  --sage-bg: oklch(0.955 0.024 155);
+  --chart-1: oklch(0.52 0.082 155);
+  --chart-2: oklch(0.64 0.09 155);
+  --chart-3: #8b8a86;
+  --chart-4: #b7b6b1;
+  --chart-5: #d8d7d2;
+  --sidebar: #fbfbfa;
+  --sidebar-foreground: #1b1b1d;
+  --sidebar-primary: #1b1b1d;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f0efec;
+  --sidebar-accent-foreground: #1b1b1d;
+  --sidebar-border: #e7e8e5;
+  --sidebar-ring: oklch(0.52 0.082 155);
+  --font-sans: Geist, sans-serif;
+  --font-serif: var(--font-sans);
+  --font-mono: Geist Mono, monospace;
+  --radius: 0.75rem;
+  --shadow-2xs: 0px 1px 2px 0px rgba(15, 23, 42, 0.06);
+  --shadow-xs: 0px 1px 2px 0px rgba(15, 23, 42, 0.06);
+  --shadow-sm: 0px 1px 2px 0px rgba(15, 23, 42, 0.07), 0px 1px 2px -1px rgba(15, 23, 42, 0.07);
+  --shadow: 0px 1px 2px 0px rgba(15, 23, 42, 0.08), 0px 1px 2px -1px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0px 2px 6px -1px rgba(15, 23, 42, 0.1), 0px 1px 2px -1px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0px 10px 30px -12px rgba(15, 23, 42, 0.16);
+  --shadow-xl: 0px 24px 60px -24px rgba(15, 23, 42, 0.2);
+  --shadow-2xl: 0px 30px 90px -30px rgba(15, 23, 42, 0.24);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+  --color-voice-wash: rgba(148, 163, 184, 0.18);
+}
+
+.dark {
+  --background: #161618;
+  --foreground: #f4f4f3;
+  --card: #1d1d1f;
+  --card-foreground: #f4f4f3;
+  --popover: #1d1d1f;
+  --popover-foreground: #f4f4f3;
+  --primary: #f4f4f3;
+  --primary-foreground: #161618;
+  --secondary: #242427;
+  --secondary-foreground: #f4f4f3;
+  --muted: #242427;
+  --muted-foreground: #c2c2c0;
+  --accent: #2a2a2d;
+  --accent-foreground: #f4f4f3;
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: #161618;
+  --border: rgba(255, 255, 255, 0.09);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: oklch(0.78 0.1 155);
+  --sage: oklch(0.78 0.1 155);
+  --sage-foreground: #161618;
+  --sage-bg: oklch(0.28 0.04 155);
+  --chart-1: oklch(0.78 0.1 155);
+  --chart-2: oklch(0.66 0.09 155);
+  --chart-3: #a1a1a0;
+  --chart-4: #71716f;
+  --chart-5: #52524f;
+  --sidebar: #1a1a1c;
+  --sidebar-foreground: #f4f4f3;
+  --sidebar-primary: #f4f4f3;
+  --sidebar-primary-foreground: #161618;
+  --sidebar-accent: #2a2a2d;
+  --sidebar-accent-foreground: #f4f4f3;
+  --sidebar-border: rgba(255, 255, 255, 0.09);
+  --sidebar-ring: oklch(0.78 0.1 155);
+  --font-sans: Geist, sans-serif;
+  --font-serif: var(--font-sans);
+  --font-mono: Geist Mono, monospace;
+  --radius: 0.75rem;
+  --shadow-2xs: 0px 1px 2px 0px rgba(0, 0, 0, 0.16);
+  --shadow-xs: 0px 1px 2px 0px rgba(0, 0, 0, 0.16);
+  --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.22), 0px 1px 2px -1px rgba(0, 0, 0, 0.22);
+  --shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.24), 0px 1px 2px -1px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0px 2px 8px -1px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0px 10px 30px -12px rgba(0, 0, 0, 0.38);
+  --shadow-xl: 0px 24px 60px -24px rgba(0, 0, 0, 0.46);
+  --shadow-2xl: 0px 30px 90px -30px rgba(0, 0, 0, 0.55);
+  --color-voice-wash: rgba(113, 113, 122, 0.18);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sage: var(--sage);
+  --color-sage-foreground: var(--sage-foreground);
+  --color-sage-bg: var(--sage-bg);
+
+  --font-sans: "Geist Variable", sans-serif;
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+  --font-heading: var(--font-sans);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* Windows transparency fix for pill window */
+.bg-transparent {
+  background-color: transparent !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* Ensure transparency for pill window */
+body.bg-transparent,
+html body.bg-transparent {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+@keyframes ios-spin {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-once {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes pill-listening {
+  0%,
+  100% {
+    transform: scaleY(var(--listening-min, 0.16));
+  }
+  50% {
+    transform: scaleY(var(--listening-max, 1));
+  }
+}
+
+@keyframes pill-scan {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translateX(0) scale(0.75);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(30px) scale(1);
+  }
+}
+
+@keyframes pill-spark {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: rotate(45deg) scale(0.35);
+  }
+  45% {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
+  68% {
+    opacity: 0.55;
+    transform: rotate(45deg) scale(0.72);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-pulse-once {
+  animation: pulse-once 0.5s ease-in-out;
+}
+
+.animate-pill-listening {
+  animation: pill-listening 650ms ease-in-out infinite;
+}
+
+.animate-pill-scan {
+  animation: pill-scan 950ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.animate-pill-spark {
+  animation: pill-spark 1280ms cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pill-listening,
+  .animate-pill-scan,
+  .animate-pill-spark {
+    animation: none !important;
+  }
+}

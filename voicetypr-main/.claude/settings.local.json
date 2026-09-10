@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(cargo test)",
+      "Bash(pnpm test:*)",
+      "Bash(cargo check:*)",
+      "Bash(find:*)",
+      "Bash(diff:*)",
+      "Bash(wc:*)",
+      "Bash(cargo test:*)",
+      "Bash(pnpm typecheck:*)",
+      "Bash(rg:*)",
+      "WebSearch",
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(pnpm audit:*)"
+    ],
+    "deny": []
+  }
+}

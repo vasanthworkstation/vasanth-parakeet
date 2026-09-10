@@ -1,0 +1,80 @@
+{
+  "anthropic": {
+    "adapter": "Anthropic",
+    "auth": "api_key",
+    "label": "Anthropic",
+    "namespace": null,
+    "recommended": [
+      "claude-haiku-4-5",
+      "claude-sonnet-4-5"
+    ],
+    "runtime": "genai_adapter",
+    "snapshot_id": "anthropic",
+    "status": "production"
+  },
+  "gemini": {
+    "adapter": "Gemini",
+    "auth": "api_key",
+    "label": "Google Gemini",
+    "namespace": null,
+    "recommended": [
+      "gemini-2.5-flash",
+      "gemini-2.5-flash-lite"
+    ],
+    "runtime": "genai_adapter",
+    "snapshot_id": "google",
+    "status": "production"
+  },
+  "openai": {
+    "adapter": "OpenAI",
+    "auth": "api_key",
+    "label": "OpenAI",
+    "namespace": null,
+    "recommended": [
+      "gpt-5-mini",
+      "gpt-5-nano"
+    ],
+    "runtime": "genai_adapter",
+    "snapshot_id": "openai",
+    "status": "production"
+  },
+  "openrouter": {
+    "adapter": null,
+    "auth": "api_key",
+    "label": "OpenRouter",
+    "namespace": null,
+    "runtime": "openai_compatible",
+    "status": "production",
+    "recommended": [
+      "google/gemini-2.5-flash-lite",
+      "openai/gpt-4.1-nano"
+    ],
+    "models": [
+      {
+        "model_id": "google/gemini-2.5-flash-lite",
+        "label": "Gemini 2.5 Flash Lite",
+        "reasoning": false
+      },
+      {
+        "model_id": "openai/gpt-4.1-nano",
+        "label": "GPT-4.1 nano",
+        "reasoning": false
+      },
+      {
+        "model_id": "openai/gpt-4o-mini",
+        "label": "GPT-4o mini",
+        "reasoning": false
+      },
+      {
+        "model_id": "meta-llama/llama-3.3-70b-instruct",
+        "label": "Llama 3.3 70B Instruct",
+        "reasoning": false
+      },
+      {
+        "model_id": "anthropic/claude-3-haiku",
+        "label": "Claude 3 Haiku",
+        "reasoning": false
+      }
+    ]
+  }
+}

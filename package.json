@@ -1,0 +1,155 @@
+{
+  "name": "Vysper",
+  "version": "1.0.0",
+  "description": "Professional Interview Assistant with Invisible Screen Overlay",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --no-sandbox --disable-gpu",
+    "speech:build": "powershell -ExecutionPolicy Bypass -File scripts/build-speech-sidecar.ps1",
+    "speech:models": "powershell -ExecutionPolicy Bypass -File scripts/download-silero.ps1 && powershell -ExecutionPolicy Bypass -File scripts/download-moonshine.ps1",
+    "speech:models:silero": "powershell -ExecutionPolicy Bypass -File scripts/download-silero.ps1",
+    "speech:models:moonshine": "powershell -ExecutionPolicy Bypass -File scripts/download-moonshine.ps1",
+    "speech:verify": "powershell -ExecutionPolicy Bypass -File scripts/verify-models.ps1",
+    "speech:setup": "npm run speech:models && npm run speech:build",
+    "build": "electron-builder",
+    "build:mac": "electron-builder --mac",
+    "build:win": "npm run speech:build && electron-builder --win",
+    "build:linux": "electron-builder --linux",
+    "build:all": "npm run speech:build && electron-builder --mac --win --linux",
+    "dist": "npm run build",
+    "pack": "electron-builder --dir",
+    "clean": "rm -rf dist/",
+    "rebuild": "npm run clean && npm run build",
+    "release": "npm run clean && npm run build:all",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "author": "Vysper Team",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^16.3.1",
+    "markdown": "^0.5.0",
+    "marked": "^15.0.12",
+    "tesseract.js": "^6.0.1",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {
+    "electron": "^29.1.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.apple.Vysper",
+    "productName": "Vysper",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/**/*",
+      "!*.md",
+      "!.git/**/*",
+      "!.env*"
+    ],
+    "extraFiles": [
+      {
+        "from": "prompts",
+        "to": "prompts"
+      }
+    ],
+    "extraResources": [
+      {
+        "from": "native/speech-sidecar/target/release/speech-sidecar.exe",
+        "to": "speech/speech-sidecar.exe"
+      },
+      {
+        "from": "native/speech-sidecar/models/silero",
+        "to": "speech/models/silero"
+      },
+      {
+        "from": "native/speech-sidecar/models/moonshine",
+        "to": "speech/models/moonshine"
+      }
+    ],
+    "asarUnpack": [
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "assets/icons/app-icon.icns",
+      "darkModeSupport": true,
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "assets/icons/app-icon.ico"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icons/app-icon.png",
+      "category": "Utility"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "dmg": {
+      "title": "Vysper Interview Assistant",
+      "backgroundColor": "#000000",
+      "window": {
+        "width": 600,
+        "height": 400
+      }
+    }
+  }
+}
